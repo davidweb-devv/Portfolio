@@ -1,0 +1,262 @@
+/* General Reset & Background */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    /* Sunny but sophisticated gradient */
+    background: linear-gradient(135deg, #e0f2fe 0%, #fff7ed 50%, #fef3c7 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #334155;
+     transition: background 2s ease, color 0.5s ease;
+}/* Transition everything smoothly when the theme changes */
+
+/* Morning (Already done, but let's formalize it) */
+body.morning {
+    background: linear-gradient(135deg, #e0f2fe 0%, #fff7ed 50%, #fef3c7 100%);
+    color: #334155;
+}
+
+/* Afternoon - High Sun (Crisper blues and whites) */
+body.afternoon {
+    background: linear-gradient(135deg, #87ceeb 0%, #f0f9ff 100%);
+    color: #0f172a;
+}
+
+/* Evening - Sunset (The Golden Hour) */
+body.evening {
+    background: linear-gradient(135deg, #fdba74 0%, #f472b6 50%, #818cf8 100%);
+    color: #ffffff;
+}
+
+/* Night - Midnight (Deep space vibes) */
+body.night {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #581c87 100%);
+    color: #e2e8f0;
+}
+
+/* Update Card contrast for Night Mode */
+body.night #clock-section, 
+body.night #todo-container {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+body.night #time { color: #f1f5f9; }
+body.night #todo-input { background: rgba(15, 23, 42, 0.6); color: white; }
+
+
+.dashboard {
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* 1. Clock Section (The Widget) */
+#clock-section {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(251, 191, 36, 0.1);
+}
+
+#time-container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-bottom: 5px;
+}
+
+#time {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: #1e293b;
+}
+
+#seconds, #ampm {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #f59e0b; /* Sunny orange accent */
+    margin-left: 4px;
+}
+
+#greeting {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* 2. Todo Section */
+#todo-container {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    border-radius: 25px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#todo-input {
+    flex: 1;
+    min-width: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 15px 20px;
+    border-radius: 15px;
+    outline: none;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+#todo-input:focus {
+    box-shadow: 0 0 0 2px #fcd34d;
+}
+
+/*#add-btn {
+    background: #1e293b;
+    color: white;
+    border: none;
+    width: 50px;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s active;
+}
+
+#add-btn:active {
+    transform: scale(0.9);
+}*/
+
+/* 1. The Add Button (+) */
+#add-btn {
+   flex-shrink: 0;
+   
+    background: #1e293b; /* Dark slate for contrast */
+    color: #ffffff;
+    border: none;
+    outline: none;
+    width: 60px; /* Slightly bigger touch target for mobile */
+    height: 55px;
+    border-radius: 18px; /* Matches the input curve */
+    font-size: 1.8rem;
+    font-weight: 300; /* Thin '+' looks more modern */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 12px rgba(30, 41, 59, 0.2);
+}
+
+#add-btn:active {
+    transform: scale(0.9);
+    background: #f59e0b; /* Turns sunny orange when you tap it! */
+}
+
+/* 2. The List Item & Delete Button */
+#todo-list li {
+    background: rgba(255, 255, 255, 0.9);
+    margin-bottom: 12px;
+    padding: 14px 20px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+/* Target the Delete Button specifically */
+.delete-btn {
+    background: #fee2e2; /* Soft red background */
+    color: #ef4444; /* Bright red 'x' */
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.delete-btn:hover, .delete-btn:active {
+    background: #ef4444;
+    color: white;
+}
+
+/* 3. Todo List Items */
+#todo-list {
+    list-style: none;
+}
+
+#todo-list li {
+    background: white;
+    margin-bottom: 10px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: slideIn 0.4s ease-out;
+}
+
+/* 4. Status/Weather Section */
+#status-section {
+    text-align: center;
+    margin-top: 15px;
+}
+
+#weather {
+    display: inline-block;
+   /* background: #1e293b;
+    color: white;*/
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 80);
+    color: #1e293b;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}

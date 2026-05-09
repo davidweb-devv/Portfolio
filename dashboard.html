@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Home Screen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <main class="dashboard">
+    
+    <section id="clock-section">
+      <h1 id="clock-display">
+      <div id="time-container">
+        <span id="time">00:00</span>
+       <span id="seconds">:00</span>
+       <span id="ampm"></span>
+      </div>    
+      <p id="greeting">Hello!</p>
+      </h1>  
+      </section>
+
+    <section id="todo-section">
+      <div id="todo-container">
+    <div class="input-group">
+        <input type="text" id="todo-input" placeholder="What's up?">
+        <button id="add-btn">+</button>
+    </div>
+    <ul id="todo-list"></ul> 
+
+    </section>
+
+    <section id="status-section">
+      <p id="weather">Fetching weather...</p>
+    </section>
+
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

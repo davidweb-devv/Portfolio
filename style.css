@@ -1,0 +1,355 @@
+/* --- Global Reset & Variables --- */
+:root {
+    --primary: #38bdf8;   /* Sky Blue */
+    --accent: #818cf8;    /* Indigo */
+    --bg: #020617;        /* Deep Space Blue */
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: #f8fafc;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Navigation --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 6%;
+    background: rgba(2, 6, 23, 0.8);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: -0.5px;
+    text-align: left;
+
+}
+
+.logo span{
+  margin: 5px;
+}
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    margin: 5px;
+    padding: 10px;
+    gap: 7px;
+    list-style: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+ .nav-links a {
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: .9rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: all 0.4s ease;
+    padding: 8px 4px;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* --- Hero Section --- */
+.hero {
+    padding: 60px 6% 40px;
+    text-align: center;
+    background: radial-gradient(circle at top right, #1e293b, #020617);
+}
+
+.badge {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--primary);
+    margin: -5px;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin: 25px 0;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    color: #94a3b8;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+button {
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: var(--primary);
+    color: #020617;
+}
+
+.primary-btn a{
+  
+
+  text-decoration: none;
+  color: #020617;
+}
+.secondary-btn {
+    background: var(--glass);
+    color: #fff;
+    border: 1px solid var(--glass-border);
+}
+
+.secondary-btn a{
+  text-decoration: none;
+  color: #fff;
+}
+/* Target both primary and secondary buttons */
+.primary-btn, .secondary-btn {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy feel */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn:active, .secondary-btn:active {
+    transform: scale(0.95); /* Shrinks slightly when tapped (tactile feedback) */
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* --- Projects Section --- */
+#projects {
+    padding: 60px 6%;
+}
+
+.section-title {
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+}
+
+.project-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.card-glass {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 25px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-glass:hover{
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.1);
+}
+.tag {
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card-glass h3 {
+    margin: 10px 0;
+    font-size: 1.3rem;
+}
+
+.card-glass p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.tech-stack {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.contact-section {
+    padding: 100px 6%;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-container {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.contact-form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 15px;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+}
+
+.contact-form input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+/* --- Work Page Specifics --- */
+
+.work-header {
+    padding: 80px 6% 30px;
+    text-align: center;
+}
+
+.work-header h1 {
+    font-size: 2.5rem;
+    margin: 15px 0;
+}
+
+.work-gallery {
+    padding: 20px 6% 100px;
+}
+
+/* Ensure the grid looks perfect on mobile */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stacked on mobile */
+    gap: 25px;
+}
+
+/* Active Link State */
+.nav-links a.active {
+    color: var(--primary);
+    border-bottom: 2px solid var(--primary);
+}
+
+/* Action Button Styles */
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.btn-sm {
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.btn-sm.primary {
+    background: var(--primary);
+    color: #020617;
+}
+
+.btn-sm.primary a{
+  text-decoration: none;
+  color: #020617;
+}
+.btn-sm.outline {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: white;
+}
+
+/* Bouncy feedback when tapping buttons */
+.btn-sm:active {
+    transform: scale(0.9);
+}
+
+/* 1. The Global Page Fade-In */
+body {
+    animation: fadeInPage 0.6s ease-out;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 2. The Project Card "Pop" */
+.project-card {
+    opacity: 0; /* Start invisible */
+    animation: cardPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes cardPop {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* 3. The Stagger (The Magic Touch) */
+/* This makes card 1, 2, and 3 appear one after another */
+.project-card:nth-child(1) { animation-delay: 0.2s; }
+.project-card:nth-child(2) { animation-delay: 0.4s; }
+.project-card:nth-child(3) { animation-delay: 0.6s; }
